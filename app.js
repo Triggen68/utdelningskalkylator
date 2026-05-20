@@ -1,5 +1,5 @@
 const form = document.getElementById('calc');
-const result = document.getElementById('result');
+const resultWrap = document.getElementById('resultWrap');
 const sharesEl = document.getElementById('shares');
 const yearlyEl = document.getElementById('yearly');
 const yearlyNetEl = document.getElementById('yearlyNet');
@@ -23,7 +23,7 @@ form.addEventListener('submit', (event) => {
   const amount = parseFloat(document.getElementById('amount').value);
 
   if (price <= 0 || amount <= 0) {
-    result.hidden = true;
+    resultWrap.hidden = true;
     return;
   }
 
@@ -39,5 +39,5 @@ form.addEventListener('submit', (event) => {
   monthlyEl.textContent = formatNumber(monthlyNet);
   leftoverEl.textContent = formatNumber(leftover);
 
-  result.hidden = false;
+  resultWrap.hidden = false;
 });
