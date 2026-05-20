@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utdelningskalkylator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Utdelningskalkylator</h1>
+    <p>Räkna ut hur mycket utdelning du får från en investering.</p>
+
+    <form id="calc">
+      <label>
+        Aktiekurs (kr)
+        <input type="number" id="price" min="0" step="0.01" value="100" required>
+      </label>
+      <label>
+        Direktavkastning (%)
+        <input type="number" id="yield" min="0" step="0.01" value="5" required>
+      </label>
+      <label>
+        Belopp att investera (kr)
+        <input type="number" id="amount" min="0" step="1" value="10000" required>
+      </label>
+      <button type="submit">Räkna</button>
+    </form>
+
+    <section id="result" hidden>
+      <h2>Resultat</h2>
+      <p>Antal aktier: <strong id="shares">—</strong></p>
+      <p>Årlig utdelning: <strong id="yearly">—</strong> kr</p>
+      <p>Månads-utdelning: <strong id="monthly">—</strong> kr</p>
+    </section>
+
+    <footer>
+      <p>Lärprojekt i Git + GitHub. <a href="https://github.com/Triggen68/utdelningskalkylator">Källkod på GitHub</a>.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
