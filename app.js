@@ -2,8 +2,11 @@ const form = document.getElementById('calc');
 const result = document.getElementById('result');
 const sharesEl = document.getElementById('shares');
 const yearlyEl = document.getElementById('yearly');
+const yearlyNetEl = document.getElementById('yearlyNet');
 const monthlyEl = document.getElementById('monthly');
 const leftoverEl = document.getElementById('leftover');
+
+const TAX_RATE = 0.30;
 
 function formatNumber(n, decimals = 2) {
   return n.toLocaleString('sv-SE', {
@@ -26,12 +29,14 @@ form.addEventListener('submit', (event) => {
 
   const shares = Math.floor(amount / price);
   const yearlyDividend = shares * price * (yieldPct / 100);
-  const monthlyDividend = yearlyDividend / 12;
+  const yearlyNet = yearlyDividend * (1 - TAX_RATE);
+  const monthlyNet = yearlyNet / 12;
   const leftover = amount - shares * price;
 
   sharesEl.textContent = formatNumber(shares, 0);
   yearlyEl.textContent = formatNumber(yearlyDividend);
-  monthlyEl.textContent = formatNumber(monthlyDividend);
+  yearlyNetEl.textContent = formatNumber(yearlyNet);
+  monthlyEl.textContent = formatNumber(monthlyNet);
   leftoverEl.textContent = formatNumber(leftover);
 
   result.hidden = false;
